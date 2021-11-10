@@ -15,7 +15,7 @@ use App\Http\Controllers\ControladorTareas;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('tareas');
 });
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevo']);

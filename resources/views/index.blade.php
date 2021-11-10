@@ -9,22 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body class="container row m-4 bg-light">
-    <h3>Lista de tareas</h3>
-
-    <form method="post" class="col-4 mt-4" action="/tarea">
-        {{csrf_field()}}
-        <p class="lead">Nueva tarea</p>
-        <label><b>Tarea</b></label><br>
-        <input type="text" name="nombre" class="form-control"><br>
-        <input type="submit" value="+ Añadir">
-    </form>
-
-    <div class="mt-5">
-        <p class="lead">Tareas actuales</p>
-        <label><b>Tarea</b></label><br>
-        <table>
-            @yield('tabla')
-        </table>
-    </div>
+    @yield("contenido")
 </body>
 </html>
