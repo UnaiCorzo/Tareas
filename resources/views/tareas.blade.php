@@ -15,5 +15,13 @@
         <p class="lead">Tareas actuales</p>
         <label><b>Tarea</b></label><br>
         <table>
+            @if (count($tareas) > 0)
+                @foreach ($tareas as $tarea)
+                    <tr>
+                        <td>{{ $tarea->nombre }}</td>
+                    </tr>
+                @endforeach
+            @endif
         </table>
     </div>
+@endsection

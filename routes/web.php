@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorTareas;
+use App\Models\Tarea;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use App\Http\Controllers\ControladorTareas;
 */
 
 Route::get('/', function () {
-    return view('tareas');
+    $tareas = Tarea::get();
+    return view('tareas', ['tareas' => $tareas]);
 });
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevo']);
