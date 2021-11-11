@@ -14,4 +14,9 @@ class ControladorTareas extends Controller
 
         return redirect("/");   
     }
+
+    function borrar($id) {
+        Tarea::destroy($id);
+        return redirect('/');
+    }
 }

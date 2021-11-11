@@ -22,4 +22,4 @@ Route::get('/', function () {
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevo']);
 
-Route::delete('/task/{id}', [ControladorTareas::class, 'borrar'])->where(['id' => '[a-zA-Z0-9]+']);
+Route::delete('/tarea/{id}', [ControladorTareas::class, 'borrar'])->where(['id' => '[a-zA-Z0-9]+']);
