@@ -17,7 +17,7 @@ use App\Models\Tarea;
 
 Route::get('/', function () {
     $tareas = Tarea::get();
-    return view('tareas', ['tareas' => $tareas]);
+    return view('home', ['tareas' => $tareas]);
 });
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevo']);
