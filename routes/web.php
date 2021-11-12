@@ -16,10 +16,16 @@ use App\Models\Tarea;
 */
 
 Route::get('/', function () {
-    $tareas = Tarea::get();
-    return view('home', ['tareas' => $tareas]);
+    return view('index');
 });
 
-Route::post('/tarea', [ControladorTareas::class, 'nuevo']);
+Route::get('/nuevo', [ControladorTareas::class, 'nuevo']);
+
+Route::get('/show', function() {
+    $tareas = Tarea::get();
+    return view('show', ['tareas' => $tareas]);
+});
+
+Route::post('/tarea', [ControladorTareas::class, 'nuevaTarea']);
 
 Route::delete('/tarea/{id}', [ControladorTareas::class, 'borrar'])->where(['id' => '[a-zA-Z0-9]+']);

@@ -7,16 +7,20 @@ use App\Models\Tarea;
 
 class ControladorTareas extends Controller
 {
-    function nuevo(Request $request) {
+    function nuevaTarea(Request $request) {
         Tarea::create([
             'nombre' => $request->get('nombre'),
         ]);
 
-        return redirect("/");   
+        return redirect("/show");   
+    }
+
+    function nuevo() {
+        return view('new');
     }
 
     function borrar($id) {
         Tarea::destroy($id);
-        return redirect('/');
+        return redirect('/show');
     }
 }
