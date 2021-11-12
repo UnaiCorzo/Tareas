@@ -12,7 +12,7 @@ class ControladorTareas extends Controller
             'nombre' => $request->get('nombre'),
         ]);
 
-        return redirect("/show");   
+        return redirect("nuevo");   
     }
 
     function nuevo() {
@@ -21,6 +21,6 @@ class ControladorTareas extends Controller
 
     function borrar($id) {
         Tarea::destroy($id);
-        return redirect('/show');
+        return redirect('show');
     }
 }
