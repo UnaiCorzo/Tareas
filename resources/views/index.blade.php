@@ -17,7 +17,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/nuevo">Nueva Tarea</a></li>
-                <li><a class="dropdown-item" href="/button">Tareas actuales</a></li>
+                <li><a class="dropdown-item" href="/show">Tareas actuales</a></li>
                 <li><a class="dropdown-item" href="/search">Buscar Tarea</a></li>
             </ul>
         </div>

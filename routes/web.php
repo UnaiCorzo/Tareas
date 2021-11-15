@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/nuevo', [ControladorTareas::class, 'nuevo']);
 
-Route::get('/button', function() {
+Route::get('/show', function() {
     $tareas = Tarea::get();
     return view('show', ['tareas' => $tareas]);
 });
