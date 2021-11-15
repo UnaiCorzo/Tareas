@@ -2,7 +2,7 @@
 
 @section('mostrar')
 
-<div class="mt-5">
+    <div class="mt-5">
         <p class="lead">Tareas actuales</p>
         <label class="mb-2"><b>Tarea</b></label><br>
         <table>
@@ -18,4 +18,5 @@
             @endif
         </table>
     </div>
+
 @endsection
