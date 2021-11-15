@@ -11,13 +11,7 @@
                     <tr>
                         <td class="pe-5 me-5">{{ $tarea->nombre }}</td>
                         <td class="ps-5 text-danger">
-                            <form action="/tarea/{{ $tarea->id }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('delete') }}
-                                <button class="btn btn-sm pe-2 ps-2 m-0 bg-danger">
-                                    <span class="text-white">X</span>
-                                </button>
-                            </form>
+                            @yield('boton')
                         </td>
                     </tr>
                 @endforeach
