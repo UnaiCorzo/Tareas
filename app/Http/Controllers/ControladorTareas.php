@@ -8,6 +8,9 @@ use App\Models\Tarea;
 class ControladorTareas extends Controller
 {
     function nuevaTarea(Request $request) {
+        if ($request->get('nombre') == "") {
+            return view("error");
+        }
         Tarea::create([
             'nombre' => $request->get('nombre'),
         ]);
