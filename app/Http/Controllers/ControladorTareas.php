@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
-use Illuminate\Support\Facades\DB;
 
 class ControladorTareas extends Controller
 {
@@ -34,7 +33,7 @@ class ControladorTareas extends Controller
 
     function mostrarTareas(Request $request) {
         $filter = $request->get('mask');
-        $tareas = DB::table('tareas')->where('nombre', 'like', '%'.$filter.'%')->get();
+        $tareas = Tarea::where('nombre', 'like', '%'.$filter.'%')->get();
         return view('result')->with('tareas', $tareas);
     }
 }
