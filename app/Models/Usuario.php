@@ -13,4 +13,9 @@ class Usuario extends Model
         "nombre",
         "apellido",
     ];
+
+    public function tareas()
+    {
+        return $this->hasMany(Tarea::class);
+    }
 }
