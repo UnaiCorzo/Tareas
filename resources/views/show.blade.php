@@ -9,7 +9,8 @@
             @if (count($tareas) > 0)
                 @foreach ($tareas as $tarea)
                     <tr>
-                        <td class="pe-5 me-5">{{ $tarea->nombre }}</td>
+                        <td class="pe-5 me-5">Tarea: <b>{{ $tarea->nombre }}</b></td>
+                        <td class="pe-5 me-5">Usuario: <b>{{ App\Models\Usuario::find($tarea->usuario_id)->nombre }}</b></td>
                         <td class="ps-5 text-danger">
                             <form action="/tarea/{{ $tarea->id }}" method="post">
                                 {{ csrf_field() }}

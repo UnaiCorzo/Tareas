@@ -31,4 +31,6 @@ Route::get('/resultado', [ControladorTareas::class, 'mostrarTareas']);
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevaTarea']);
 
+Route::post('/usuario', [ControladorTareas::class, 'nuevoUsuario']);
+
 Route::delete('/tarea/{id}', [ControladorTareas::class, 'borrar'])->where(['id' => '[a-zA-Z0-9]+']);

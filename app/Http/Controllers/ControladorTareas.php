@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 
 class ControladorTareas extends Controller
@@ -14,13 +15,23 @@ class ControladorTareas extends Controller
         }
         Tarea::create([
             'nombre' => $request->get('nombre'),
+            'usuario_id' => $request->get('usuario'),
         ]);
 
         return redirect("nuevo");   
     }
 
+    function nuevoUsuario(Request $request) {
+        Usuario::create([
+            'nombre' => $request->get('nombre'),
+            'apellido' => $request->get('apellido'),
+        ]);
+
+        return redirect("nuevo");
+    }
+
     function nuevo() {
-        return view('new');
+        return view('new', ['usuarios' => DB::table('usuarios')->get()]);
     }
 
     function borrar($id) {
