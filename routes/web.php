@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/nuevo', [ControladorTareas::class, 'nuevo']);
 
-Route::get('/show', function() {
+Route::get('/show', function () {
     $tareas = Tarea::get();
     return view('show', ['tareas' => $tareas]);
 });
@@ -33,4 +33,4 @@ Route::post('/tarea', [ControladorTareas::class, 'nuevaTarea']);
 
 Route::post('/usuario', [ControladorTareas::class, 'nuevoUsuario']);
 
-Route::delete('/tarea/{id}', [ControladorTareas::class, 'borrar'])->where(['id' => '[a-zA-Z0-9]+']);
+Route::delete('/tarea/{id}', [ControladorTareas::class, 'borrar']);

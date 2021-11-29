@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class ControladorTareas extends Controller
 {
-    function nuevaTarea(Request $request) {
+    function nuevaTarea(Request $request)
+    {
         if ($request->get('nombre') == "") {
             return view("error");
         }
@@ -18,10 +19,11 @@ class ControladorTareas extends Controller
             'usuario_id' => $request->get('usuario'),
         ]);
 
-        return redirect("nuevo");   
+        return redirect("nuevo");
     }
 
-    function nuevoUsuario(Request $request) {
+    function nuevoUsuario(Request $request)
+    {
         Usuario::create([
             'nombre' => $request->get('nombre'),
             'apellido' => $request->get('apellido'),
@@ -30,22 +32,26 @@ class ControladorTareas extends Controller
         return redirect("nuevo");
     }
 
-    function nuevo() {
+    function nuevo()
+    {
         return view('new', ['usuarios' => DB::table('usuarios')->get()]);
     }
 
-    function borrar($id) {
+    function borrar($id)
+    {
         Tarea::destroy($id);
         return redirect('show');
     }
 
-    function buscarTareas() {
+    function buscarTareas()
+    {
         return view('search');
     }
 
-    function mostrarTareas(Request $request) {
+    function mostrarTareas(Request $request)
+    {
         $filter = $request->get('mask');
-        $tareas = DB::table('tareas')->where('nombre', 'like', '%'.$filter.'%')->get();
+        $tareas = DB::table('tareas')->where('nombre', 'like', '%' . $filter . '%')->get();
         return view('result', ['tareas' => $tareas]);
     }
 }
