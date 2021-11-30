@@ -12,7 +12,7 @@
         <br>
         <button class="btn bg-secondary text-white" type="submit">Buscar</button>
     </form>
-    
+
     @yield('res')
 
 @endsection

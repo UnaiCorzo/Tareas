@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Tarea;
 use App\Models\Usuario;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ControladorTareas extends Controller
 {
-    function nuevaTarea(Request $request)
+    public function nuevaTarea(Request $request)
     {
         if ($request->get('nombre') == "") {
             return view("error");
@@ -22,7 +22,7 @@ class ControladorTareas extends Controller
         return redirect("nuevo");
     }
 
-    function nuevoUsuario(Request $request)
+    public function nuevoUsuario(Request $request)
     {
         Usuario::create([
             'nombre' => $request->get('nombre'),
@@ -32,23 +32,28 @@ class ControladorTareas extends Controller
         return redirect("nuevo");
     }
 
-    function nuevo()
+    public function nuevo()
     {
         return view('new', ['usuarios' => DB::table('usuarios')->get()]);
     }
 
-    function borrar($id)
+    public function borrar($id)
     {
         Tarea::destroy($id);
         return redirect('show');
     }
 
-    function buscarTareas()
+    public function buscarTareas()
     {
         return view('search');
     }
 
-    function mostrarTareas(Request $request)
+    public function buscarAvanzado()
+    {
+        return view('advanced', ['usuarios' => DB::table('usuarios')->get()]);
+    }
+
+    public function mostrarTareas(Request $request)
     {
         $filter = $request->get('mask');
         $tareas = DB::table('tareas')->where('nombre', 'like', '%' . $filter . '%')->get();

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorTareas;
 use App\Models\Tarea;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use App\Models\Tarea;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('index');
@@ -28,6 +28,8 @@ Route::get('/show', function () {
 
 Route::get('/search', [ControladorTareas::class, 'buscarTareas']);
 Route::get('/resultado', [ControladorTareas::class, 'mostrarTareas']);
+
+Route::get('/search/advanced', [ControladorTareas::class, 'buscarAvanzado']);
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevaTarea']);
 

@@ -19,10 +19,12 @@
                 <li><a class="dropdown-item" href="/nuevo">Nueva Tarea</a></li>
                 <li><a class="dropdown-item" href="/show">Tareas actuales</a></li>
                 <li><a class="dropdown-item" href="/search">Buscar Tarea</a></li>
+                <li><a class="dropdown-item" href="/search/advanced">Buscar Avanzado</a></li>
             </ul>
         </div>
         @yield("contenido")
         @yield("mostrar")
         @yield("buscar")
+        @yield("avanzado")
     </body>
 </html>
