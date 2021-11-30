@@ -59,4 +59,14 @@ class ControladorTareas extends Controller
         $tareas = DB::table('tareas')->where('nombre', 'like', '%' . $filter . '%')->get();
         return view('result', ['tareas' => $tareas]);
     }
+
+    public function mostrarAvanzado(Request $request)
+    {
+        if ($request->get('usuario') == "x") {
+            $tareas = DB::table('tareas')->get();
+        } else {
+            $tareas = DB::table('tareas')->where('user', $request->get('usuario'))->get();
+        }
+        return view('result2', ['tareas' => $tareas]);
+    }
 }
