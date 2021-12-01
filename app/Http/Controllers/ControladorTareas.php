@@ -62,10 +62,14 @@ class ControladorTareas extends Controller
 
     public function mostrarAvanzado(Request $request)
     {
-        if ($request->get('usuario') == "x") {
+        if ($request->get('usuario') == "x" && $request->get('fecha') == null) {
             $tareas = DB::table('tareas')->get();
-        } else {
+        } else if ($request->get('fecha') == null) {
             $tareas = DB::table('tareas')->where('usuario_id', $request->get('usuario'))->get();
+        } else if ($request->get('usuario') == "x") {
+            $tareas = DB::table('tareas')->whereDate('updated_at', '>=', $request->get('fecha'))->get();
+        } else {
+            $tareas = DB::table('tareas')->whereDate('updated_at', '>=', $request->get('fecha'))->where('usuario_id', $request->get('usuario'))->get();
         }
         return view('result2', ['usuarios' => DB::table('usuarios')->get(), 'tareas' => $tareas]);
     }
