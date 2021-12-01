@@ -30,7 +30,7 @@ Route::get('/search', [ControladorTareas::class, 'buscarTareas']);
 Route::get('/resultado', [ControladorTareas::class, 'mostrarTareas']);
 
 Route::get('/search/advanced', [ControladorTareas::class, 'buscarAvanzado']);
-Route::get('/resultado/advanced', [ControladorTareas::class, 'mostrarAvanzado']);
+Route::post('/resultado/advanced', [ControladorTareas::class, 'mostrarAvanzado']);
 
 Route::post('/tarea', [ControladorTareas::class, 'nuevaTarea']);
 

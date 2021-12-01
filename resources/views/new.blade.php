@@ -20,8 +20,6 @@
 
     <br>
 
-<<<<<<< HEAD
-=======
     <form method="post" class="col-4 mt-4" action="/usuario">
         {{csrf_field()}}
         <p class="lead">Nuevo usuario</p>
@@ -33,5 +31,4 @@
         <button class="btn bg-secondary text-white" type="submit">+ Añadir</button>
     </form>
 
->>>>>>> parent of 994271b (Cleanup)
 @endsection

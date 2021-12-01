@@ -65,8 +65,8 @@ class ControladorTareas extends Controller
         if ($request->get('usuario') == "x") {
             $tareas = DB::table('tareas')->get();
         } else {
-            $tareas = DB::table('tareas')->where('user', $request->get('usuario'))->get();
+            $tareas = DB::table('tareas')->where('usuario_id', $request->get('usuario'))->get();
         }
-        return view('result2', ['tareas' => $tareas]);
+        return view('result2', ['usuarios' => DB::table('usuarios')->get(), 'tareas' => $tareas]);
     }
 }
