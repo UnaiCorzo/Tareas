@@ -19,6 +19,6 @@
     <button class="btn bg-secondary text-white" type="submit">Buscar</button>
 </form>
 
-    @yield('res2')
+@yield('res2')
 
 @endsection
