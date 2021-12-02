@@ -11,12 +11,20 @@ class ControladorTareas extends Controller
 {
     public function nuevaTarea(Request $request)
     {
-        if ($request->get('nombre') == "" || $request->get('usuario') == "") {
-            return view("error", ['usuarios' => DB::table('usuarios')->get()]);
-        }
+        $validate = $request->validate(
+            [
+                'nombre' => ['required'],
+                'usuario_id' => ['required'],
+            ],
+            [
+                'nombre.required' => "'Tarea' no introducida",
+                'usuario_id.required' => "'Usuario' no seleccionado",
+            ]
+        );
+
         Tarea::create([
-            'nombre' => $request->get('nombre'),
-            'usuario_id' => $request->get('usuario'),
+            'nombre' => $validate['nombre'],
+            'usuario_id' => $validate['usuario'],
         ]);
 
         return redirect("nuevo");
@@ -24,13 +32,20 @@ class ControladorTareas extends Controller
 
     public function nuevoUsuario(Request $request)
     {
-        if ($request->get("nombre") == "" || $request->get("apellido") == "") {
-            return view("error2", ['usuarios' => DB::table('usuarios')->get()]);
-        }
+        $validate = $request->validate(
+            [
+                'nombre' => ['required'],
+                'apellido' => ['required'],
+            ],
+            [
+                'nombre.required' => "'Nombre' no introducido",
+                'apellido.required' => "'Apellido' no introducido",
+            ]
+        );
 
         Usuario::create([
-            'nombre' => $request->get('nombre'),
-            'apellido' => $request->get('apellido'),
+            'nombre' => $validate['nombre'],
+            'apellido' => $validate['apellido'],
         ]);
 
         return redirect("nuevo");

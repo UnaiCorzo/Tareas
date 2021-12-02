@@ -28,20 +28,20 @@
     <input type="text" name="nombre" class="form-control">
     <label><b>Apellido</b></label><br>
     <input type="text" name="apellido" class="form-control mb-2">
-    @yield("error2")
     <br>
     <button class="btn bg-secondary text-white mt-2" type="submit">+ Añadir</button>
 </form>
 
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+<div class="col-8 text-center mt-2">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
-@endif
 
 @endsection
