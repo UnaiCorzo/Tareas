@@ -13,17 +13,17 @@ class ControladorTareas extends Controller
     {
         $validate = $request->validate(
             [
-                'nombre' => ['required'],
-                'usuario_id' => ['required'],
+                'nombre_' => ['required'],
+                'usuario' => ['required'],
             ],
             [
-                'nombre.required' => "'Tarea' no introducida",
-                'usuario_id.required' => "'Usuario' no seleccionado",
+                'nombre_.required' => "'Tarea' no introducida",
+                'usuario.required' => "'Usuario' no seleccionado",
             ]
         );
 
         Tarea::create([
-            'nombre' => $validate['nombre'],
+            'nombre' => $validate['nombre_'],
             'usuario_id' => $validate['usuario'],
         ]);
 
