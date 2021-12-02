@@ -27,7 +27,7 @@ class ControladorTareas extends Controller
             'usuario_id' => $validate['usuario'],
         ]);
 
-        return redirect("nuevo");
+        return redirect('nuevo');
     }
 
     public function nuevoUsuario(Request $request)

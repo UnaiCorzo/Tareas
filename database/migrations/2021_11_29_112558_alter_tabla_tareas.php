@@ -14,7 +14,7 @@ class AlterTablaTareas extends Migration
     public function up()
     {
         Schema::table('tareas', function (Blueprint $table) {
-            $table->unsignedBigInteger("usuario_id");
+            $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios');
         });
     }

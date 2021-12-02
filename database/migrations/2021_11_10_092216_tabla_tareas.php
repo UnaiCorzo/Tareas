@@ -15,7 +15,7 @@ class TablaTareas extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
-            $table->string("nombre");
+            $table->string('nombre');
             $table->timestamps();
         });
     }
