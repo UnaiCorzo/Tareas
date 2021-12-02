@@ -11,8 +11,8 @@ class ControladorTareas extends Controller
 {
     public function nuevaTarea(Request $request)
     {
-        if ($request->get('nombre') == "") {
-            return view("error");
+        if ($request->get('nombre') == "" || $request->get('usuario') == "") {
+            return view("error", ['usuarios' => DB::table('usuarios')->get()]);
         }
         Tarea::create([
             'nombre' => $request->get('nombre'),
@@ -24,6 +24,10 @@ class ControladorTareas extends Controller
 
     public function nuevoUsuario(Request $request)
     {
+        if ($request->get("nombre") == "" || $request->get("apellido") == "") {
+            return view("error2", ['usuarios' => DB::table('usuarios')->get()]);
+        }
+
         Usuario::create([
             'nombre' => $request->get('nombre'),
             'apellido' => $request->get('apellido'),

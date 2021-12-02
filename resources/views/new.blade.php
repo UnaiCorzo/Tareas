@@ -8,14 +8,15 @@
     <label><b>Tarea</b></label><br>
     <input type="text" name="nombre" class="form-control"><br>
     <label><b>Usuario</b></label><br>
-    <select id="usuario" name="usuario">
+    <select id="usuario" name="usuario" class="mb-2">
+        <option value="">Selecciona</option>
         @foreach ($usuarios as $usuario)
         <option value="{{ $usuario->id }}">{{ $usuario->nombre }}</option>
         @endforeach
     </select><br>
     @yield("error")
     <br>
-    <button class="btn bg-secondary text-white" type="submit">+ Añadir</button>
+    <button class="btn bg-secondary text-white mt-2" type="submit">+ Añadir</button>
 </form>
 
 <br>
@@ -26,9 +27,21 @@
     <label><b>Nombre</b></label><br>
     <input type="text" name="nombre" class="form-control">
     <label><b>Apellido</b></label><br>
-    <input type="text" name="apellido" class="form-control">
+    <input type="text" name="apellido" class="form-control mb-2">
+    @yield("error2")
     <br>
-    <button class="btn bg-secondary text-white" type="submit">+ Añadir</button>
+    <button class="btn bg-secondary text-white mt-2" type="submit">+ Añadir</button>
 </form>
+
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 @endsection

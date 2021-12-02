@@ -2,6 +2,6 @@
 
 @section ('error')
 
-<p class="text-danger"><b>Error. El nombre no puede estar vacío</b></p>
+<span class="text-danger"><b>Error. Introduce un nombre y el usuario</b></span>
 
 @endsection
